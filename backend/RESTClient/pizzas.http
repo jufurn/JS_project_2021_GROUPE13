@@ -1,0 +1,59 @@
+######### NORMAL OPERATION  ###########
+
+### Read all pizzas
+GET http://localhost:3000/pizzas
+
+### Read pizza identified by 2
+GET http://localhost:3000/pizzas/2
+
+### Create a pizza
+POST http://localhost:3000/pizzas
+Content-Type: application/json
+
+{
+    "title":"Magic Green",
+    "content":"Epinards, Brocolis, Olives vertes, Basilic"
+}
+
+### Update the pizza identified by 2
+PUT http://localhost:3000/pizzas/2
+Content-Type: application/json
+
+{
+    "title":"Magic Green 2"
+}
+
+### Delete pizza identified by 2
+DELETE http://localhost:3000/pizzas/2
+
+
+######### ERROR OPERATION  ###########
+
+### Read pizza which does not exists
+GET http://localhost:3000/pizzas/100
+
+### Create a pizza without info for a property
+POST http://localhost:3000/pizzas
+Content-Type: application/json
+
+{
+    "title":"",
+    "content":"Epinards, Brocolis, Olives vertes, Basilic"
+}
+
+### Update for a pizza which does not exist
+PUT http://localhost:3000/pizzas/200
+Content-Type: application/json
+
+{
+    "title":"Magic Green 2"
+}
+
+### Update for a pizza which does not provide any info for a property
+PUT http://localhost:3000/pizzas/1
+Content-Type: application/json
+
+{
+    "title":"Magic Green 2",
+    "content":"1"
+}
